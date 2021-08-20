@@ -51,55 +51,65 @@ section.container {
   background-position-x: center;
 }
 
-section.container img {
+section.container img.mobile {
   position: absolute;
   top: -6.5rem;
   left: 1.7rem;
 }
 
-section.container h1 {
+section.container img.desktop {
+  display: none;
+}
+
+section.container div h1 {
   text-align: center;
   padding-top: 90px;
   font-size: 30px;
   padding-bottom: 1rem;
 }
 
-section.container div {
+section.container div div {
   padding: 1rem 0rem;
   line-height: 1rem;
   font-size: 12px;
 }
 
-section.container div h4 a {
+section.container div div h2 a {
   color: var(--veryDarkGrayishBlue);
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 400;
   width: 320px;
-  /* &:active {
-                        font-weight: 700;
-                        color: var(--veryDarkDesaturatedBlue);
-                    } */
 }
 
-section.container div h4 a:hover {
+section.container div div h2 a:hover {
   color: var(--colorSoftRed);
 }
 
-section.container div h4 a::after {
+section.container div div h2 a:active {
+  font-weight: 700;
+  color: var(--veryDarkDesaturatedBlue);
+}
+
+section.container div div h2 a::after {
   content: url(../images/icon-arrow-down.svg);
   position: absolute;
   right: 1.5rem;
 }
 
-section.container div p {
+section.container div div h2 a::after:hover {
+  -webkit-transform: rotate(0.5turn);
+          transform: rotate(0.5turn);
+}
+
+section.container div div p {
   display: none;
   color: var(--darkGrayishBlue);
   padding-top: 1rem;
   padding-right: 3rem;
 }
 
-section.container div p:target {
+section.container div div p:target {
   display: block;
 }
 
@@ -123,5 +133,46 @@ footer div.attribution {
 footer div.attribution a {
   color: var(--colorSoftRed);
   text-decoration: none;
+}
+
+@media (min-width: 1440px) {
+  section.container {
+    position: relative;
+    width: 70vw;
+    height: 547px;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    overflow: hidden;
+    background-image: url(../images/bg-pattern-desktop.svg);
+    background-repeat: no-repeat;
+    background-position-x: -565px;
+    background-position-y: 73%;
+  }
+  section.container img.mobile {
+    display: none;
+  }
+  section.container img.desktop {
+    display: unset;
+    position: relative;
+    top: 8%;
+    right: 20%;
+  }
+  section.container div {
+    padding: 0rem 3rem 0rem 2rem;
+    width: 100%;
+  }
+  section.container div h1 {
+    text-align: left;
+    padding: 20px 0px 25px;
+  }
+  section.container div div h2 a::after {
+    right: 5rem;
+  }
 }
 /*# sourceMappingURL=style.css.map */
